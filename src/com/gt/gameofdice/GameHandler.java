@@ -50,12 +50,12 @@ public class GameHandler {
 					continue;
 				}
 				
-				System.out.println(player.getName()+" its your turn (press ‘r’ to roll the dice) ");
+				System.out.println(player.getName()+" its your turn (press â€˜râ€™ to roll the dice) ");
 				String r = sc.next();
 				if(r.equals("r") || r.equals("R")) {
 					DiceService service = new DiceService(player);
 					service.executeDice(pointToAccumulate);
-					timesToRoll = service.maxRank;
+					timesToRoll = Math.max(timesToRoll,service.maxRank);
 				}
 				else {
 					 System.out.println("You have press wrong key, kindly press 'r' or 'R' again ");
